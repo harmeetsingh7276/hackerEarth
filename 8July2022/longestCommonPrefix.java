@@ -33,3 +33,35 @@ class Solution {
 	}
     
 }
+
+
+
+
+
+//More efficient
+
+import java.util.Arrays;
+
+class Test {
+	public static String longestCommonPrefix(String[] strs) {
+		Arrays.sort(strs);
+//		for(String s:strs) {
+//			System.out.println(s);
+//		}
+//		
+		int i=0;
+		for(i=0;i<strs[0].length();i++) {
+			if(strs[0].charAt(i)!=strs[strs.length-1].charAt(i)) {
+				break;
+			}
+		}
+		return i==0?"":strs[0].substring(0, i);
+	}
+
+	public static void main(String[] args) {
+		//String[] str = { "flower", "flow", "flight" };
+		String[] str = {"a"};
+		
+		System.out.println(longestCommonPrefix(str));
+	}
+}
